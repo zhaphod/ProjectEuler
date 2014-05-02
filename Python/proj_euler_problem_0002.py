@@ -12,26 +12,15 @@ By considering the terms in the Fibonacci sequence whose values
 do not exceed four million, find the sum of the even-valued terms.
 '''
 
-sum = 0
-
 def EulerProblem0002():
-	global sum
-	
-	fn_1 = 1
-	fn_2 = 1
-	fn = fn_1 + fn_2
-	while fn < 4000000:
-		print(fn_2, fn_1, fn)
-		if fn % 2 == 0:
-			print("Adding fn = " + str(fn) + " to sum = " + str(sum))
-			sum += fn
-		fn_2 = fn_1
-		fn_1 = fn
-		fn = fn_1 + fn_2
-	
-	
+    sum = 0
+    a, b = 1, 1
+    while a <= 4000000:
+        print (a)
+        if a % 2 == 0:
+            sum += a
+        a, b = b, a + b    
+    return sum
 if __name__ == "__main__":
-	print("Euler problem one")
-	EulerProblem0002()
-	print("Sum = " + str(sum))
-	
+    print("Sum = " + str(EulerProblem0002()))
+    
