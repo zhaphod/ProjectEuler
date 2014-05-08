@@ -16,9 +16,25 @@ What is the millionth lexicographic permutation of the digits
 import math
 import sys
 
+def genPermutation(numbers, partperm, perms):
+    if numbers == []:
+        perms.append(partperm)
+        return
+    else:        
+        for x in numbers:
+            temp = numbers[:]
+            temp.remove(x)
+            genPermutation(temp, partperm + str(x), perms)
+            
 def EulerProblem0024():
+    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    perms = []
+    genPermutation(numbers, "", perms)
+    #print perms
+    print len(perms)
+    perms.sort()
+    print perms[1000000 - 1]
 
-        
 if __name__ == "__main__":
     EulerProblem0024()
     
